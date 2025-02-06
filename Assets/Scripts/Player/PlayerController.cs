@@ -27,6 +27,7 @@ public class PlayerController
         playerState = PlayerState.InDark;
 
         EventService.Instance.OnLightSwitchToggled.AddListener(onLightSwitch);
+        EventService.Instance.OnkeyPickedUp.AddListener(OnKeysPickedUp);
     }
 
     ~PlayerController()
@@ -84,5 +85,10 @@ public class PlayerController
             PlayerState = PlayerState.None;
         else
             PlayerState = PlayerState.InDark;
+    }
+
+    private void OnKeysPickedUp(int keys)
+    {
+        KeysEquipped = keys;
     }
 }
