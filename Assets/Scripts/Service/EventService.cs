@@ -13,31 +13,29 @@ public class EventService
         }
     }
 
-    public GameEventController LightSwitchToggleEvent { get; private set; }
+    public EventController OnLightSwitchToggled { get; private set; }
+    public EventController<int> OnKeyPickedUp { get; private set; }
 
-    public GameEventController<int> KeyPickedUpEvent { get; private set; }
+    public EventController<int> OnPotionDrinkEvent { get; private set; }
+    public EventController OnLightsOffByGhostEvent { get; private set; }
 
-    public GameEventController<int> PotionDrinkEvent { get; private set; }
+    public EventController onPlayerEscapedEvent { get; private set; }
+    public EventController onPlayerDeathEvent { get; private set; }
 
-    public GameEventController LightsOffByGhostEvent { get; private set; }
+    public EventController OnRatRush { get; private set; }
 
-    public GameEventController RatRushEvent { get; private set; }
-
-    public GameEventController SkullDropEvent { get; private set; }
-
-    public GameEventController PlayerEscapedEvent { get; private set; }
-
-    public GameEventController PlayerDeathEvent { get; private set; }
+    public EventController OnSkullDropEvent { get; private set; }
 
     public EventService()
     {
-        LightSwitchToggleEvent = new GameEventController();
-        KeyPickedUpEvent = new GameEventController<int>();
-        PotionDrinkEvent = new GameEventController<int>();
-        LightsOffByGhostEvent = new GameEventController();
-        RatRushEvent = new GameEventController();
-        SkullDropEvent = new GameEventController();
-        PlayerEscapedEvent = new GameEventController();
-        PlayerDeathEvent = new GameEventController();
+        OnLightSwitchToggled = new EventController();
+        OnKeyPickedUp = new EventController<int>();
+        OnLightsOffByGhostEvent = new EventController();
+        OnPotionDrinkEvent = new EventController<int>();
+        onPlayerEscapedEvent = new EventController();
+        onPlayerDeathEvent = new EventController();
+
+        OnRatRush = new EventController();
+        OnSkullDropEvent = new EventController();
     }
 }
